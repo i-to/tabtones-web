@@ -1,0 +1,18 @@
+{% from "macros.njk" import icon %}
+<header class="site-header" data-header>
+	<div class="header-inner">
+		<a class="site-brand" href="{{ '/' | url }}" aria-label="Tabtones, zur Startseite">
+			{{ icon("note", "brand-icon") }}<span>Tabtones</span>
+		</a>
+		<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+			{{ icon("menu", "icon-open") }}{{ icon("close", "icon-close") }}
+			<span class="visually-hidden">Menü</span>
+		</button>
+		<nav class="site-nav" id="site-nav" aria-label="Hauptnavigation" data-nav>
+			<a href="{{ '/' | url }}#videos">Videos</a>
+			<a href="{{ '/' | url }}#anlaesse">Anlässe</a>
+			<a href="{{ '/' | url }}#momente">Live-Momente</a>
+			<a class="nav-cta" href="{{ '/' | url }}#contact">Kontakt</a>
+		</nav>
+	</div>
+</header>

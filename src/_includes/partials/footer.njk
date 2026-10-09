@@ -1,0 +1,20 @@
+{% from "macros.njk" import icon %}
+<footer class="site-footer">
+	<div class="footer-inner">
+		<div class="footer-brand">
+			<p class="footer-title">Tabtones</p>
+			<p class="footer-tagline">{{ site.tagline }}</p>
+		</div>
+		<ul class="social-list" aria-label="Tabtones online">
+			{% for item in site.social %}
+			<li><a class="social-link" href="{{ item.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ item.label }} (öffnet in neuem Tab)">{% if item.id == "youtube" or item.id == "instagram" %}{{ icon(item.id) }}{% else %}{{ icon("link") }}{% endif %}<span>{{ item.label }}</span></a></li>
+			{% endfor %}
+		</ul>
+		<nav class="footer-nav" aria-label="Rechtliches">
+			<a href="{{ '/impressum/' | url }}">Impressum</a>
+			<a href="{{ '/datenschutz/' | url }}">Datenschutz</a>
+			<button class="link-button" type="button" data-consent-open>Cookie-Einstellungen</button>
+		</nav>
+	</div>
+	<p class="footer-copy">&copy; {% year %} Tabtones</p>
+</footer>

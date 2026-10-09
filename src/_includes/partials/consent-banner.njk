@@ -1,0 +1,24 @@
+{% from "macros.njk" import icon %}
+<section class="consent" id="consent-banner" role="dialog" aria-modal="false" aria-labelledby="consent-title" aria-describedby="consent-summary" hidden data-consent-banner>
+	<div class="consent-inner">
+		<h2 id="consent-title">Externe Inhalte: YouTube-Videos</h2>
+		<p id="consent-summary">Diese Website zeigt YouTube-Videos. Beim Laden der Videos wird eine Verbindung zu Servern von YouTube (Google) hergestellt. Dabei wird Ihre IP-Adresse übermittelt, und es können Cookies oder ähnliche Technologien auf Ihrem Gerät gespeichert und ausgelesen werden. Ohne Ihre Einwilligung laden wir keine Inhalte von YouTube.</p>
+		<details class="consent-details">
+			<summary>Alle Informationen zur Einwilligung</summary>
+			<ul>
+				<li><strong>Anbieter:</strong> Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Eine Übermittlung von Daten an Google LLC in den USA ist möglich (EU-U.S. Data Privacy Framework).</li>
+				<li><strong>Verarbeitete Daten:</strong> IP-Adresse, Browser- und Geräteinformationen, aufgerufene Seite, Zeitpunkt des Abrufs sowie Daten, die über Cookies oder ähnliche Technologien von Google gesetzt und gelesen werden.</li>
+				<li><strong>Folgen:</strong> Google erfährt, dass Sie diese Website besucht und ein Video geladen haben. Sind Sie in einem Google-Konto angemeldet, kann Google den Aufruf Ihrem Profil zuordnen und für Werbe- und Analysezwecke verwenden.</li>
+				<li><strong>Erweiterter Datenschutzmodus:</strong> Wir binden Videos über youtube-nocookie.com ein. Auch dabei besteht eine Verbindung zu Google; eine Datenübermittlung lässt sich nicht ausschließen.</li>
+				<li><strong>Rechtsgrundlage:</strong> Ihre Einwilligung nach Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG.</li>
+				<li><strong>Freiwilligkeit und Widerruf:</strong> Die Einwilligung ist freiwillig. Sie können sie jederzeit mit Wirkung für die Zukunft über den Link „Cookie-Einstellungen“ im Seitenfuß widerrufen. Ohne Einwilligung können Sie die Videos direkt auf YouTube ansehen.</li>
+				<li><strong>Speicherung Ihrer Entscheidung:</strong> Ihre Auswahl wird nur lokal in Ihrem Browser (localStorage) gespeichert, für höchstens sechs Monate. Sie wird nicht an uns übertragen.</li>
+			</ul>
+			<p>Weitere Informationen finden Sie in unserer <a href="{{ '/datenschutz/' | url }}#youtube">Datenschutzerklärung</a> und in der <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener noreferrer">Datenschutzerklärung von Google</a>.</p>
+		</details>
+		<div class="consent-actions">
+			<button class="button button-consent button-consent-accept" type="button" data-consent-accept>Alle Videos laden</button>
+			<button class="button button-consent button-consent-reject" type="button" data-consent-reject>Ablehnen</button>
+		</div>
+	</div>
+</section>

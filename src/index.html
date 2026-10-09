@@ -1,0 +1,142 @@
+---
+layout: base.njk
+title: Tabtones | Live-Band für Hochzeit, Feier & Firmenevent in München
+description: Tabtones ist die Coverband aus München für Hochzeiten, private Feiern und Firmenevents in Bayern. Live-Videos ansehen und direkt anfragen.
+---
+{% from "macros.njk" import icon %}
+{% macro videoCard(video, featured) %}
+<article class="video-card{% if featured %} is-featured{% endif %}" data-video data-video-id="{{ video.id }}" data-video-title="{{ video.title }}">
+	<div class="video-frame" data-video-frame>
+		<img class="video-poster" src="{{ ('/assets/images/video-posters/' + video.id + '.jpg') | url }}" alt="" width="1280" height="720" loading="{% if featured %}eager{% else %}lazy{% endif %}" decoding="async">
+		<div class="video-overlay" data-video-overlay>
+			<span class="video-play">{{ icon("play") }}</span>
+			<p class="video-reason reason-unknown">Zum Abspielen wird eine Verbindung zu YouTube (Google) aufgebaut. Dabei werden Ihre IP-Adresse übertragen und Cookies gesetzt. Dafür brauchen wir Ihre Einwilligung.</p>
+			<p class="video-reason reason-rejected">Sie haben das Laden von YouTube abgelehnt. Ohne Verbindung zu YouTube kann dieses Video hier nicht abgespielt werden.</p>
+			<div class="video-actions">
+				<button class="button button-gold button-small" type="button" data-consent-open>Einwilligung prüfen</button>
+				<a class="video-link" href="https://www.youtube.com/watch?v={{ video.id }}" target="_blank" rel="noopener noreferrer">Auf YouTube ansehen</a>
+			</div>
+		</div>
+	</div>
+	<h3 class="video-title">{{ video.title }}</h3>
+</article>
+{% endmacro %}
+
+<section class="hero" aria-labelledby="hero-title">
+	<div class="hero-media">
+		{% photo "tabtones-band.jpg", "Die vier Mitglieder von Tabtones zwischen roten Theatersesseln", { sizes: "100vw", widths: [640, 1280, 1920, 2560], loading: "eager", fetchpriority: "high" } %}
+	</div>
+	<div class="hero-content">
+		<p class="badge"><span class="equalizer" aria-hidden="true"><i></i><i></i><i></i><i></i></span>{{ site.tagline }}</p>
+		<h1 id="hero-title"><em>Live-Band</em> für Hochzeiten, Feiern &amp; Firmenevents</h1>
+		<p class="hero-intro">Tabtones spielen live Pop, Dance und Lounge. Vom Sektempfang bis zur vollen Tanzfläche sorgen wir für den Sound, den eure Gäste nicht vergessen.</p>
+		<div class="hero-actions">
+			<a class="button button-gold" href="#videos">{{ icon("play") }}Videos ansehen</a>
+			<a class="button button-glass" href="#contact">{{ icon("calendar") }}Termin anfragen</a>
+		</div>
+		<ul class="instrument-strip" aria-hidden="true">
+			<li>{{ icon("mic") }}</li>
+			<li>{{ icon("guitar") }}</li>
+			<li>{{ icon("drum") }}</li>
+			<li>{{ icon("keys") }}</li>
+			<li>{{ icon("note") }}</li>
+		</ul>
+	</div>
+</section>
+
+<section class="videos" id="videos" aria-labelledby="videos-title">
+	<div class="videos-inner">
+		<h2 class="visually-hidden" id="videos-title">Live-Videos von Tabtones</h2>
+		{{ videoCard(videos[0], true) }}
+		<div class="video-grid">
+			{% for video in videos %}{% if not loop.first %}
+			{{ videoCard(video, false) }}
+			{% endif %}{% endfor %}
+		</div>
+		<noscript><p class="video-noscript">Ohne JavaScript können wir keine Videos einbinden. Die Videos finden Sie auf unserem <a href="{{ site.social[0].url }}" target="_blank" rel="noopener noreferrer">YouTube-Kanal</a>.</p></noscript>
+		<p class="video-consent-note">Die Videos werden erst nach Ihrer Einwilligung von YouTube geladen. <button class="link-button" type="button" data-consent-open>Cookie-Einstellungen ändern</button></p>
+	</div>
+</section>
+
+<section class="occasions" id="anlaesse" aria-labelledby="occasions-title">
+	<div class="wrap">
+		<div class="section-heading">
+			<p class="eyebrow">Für jeden Anlass der richtige Ton</p>
+			<h2 id="occasions-title">Zusammen feiern. <em>Live</em> erleben.</h2>
+			<p>Ob großer Tag, runder Geburtstag oder Sommerfest: Wir stimmen Songs und Stimmung auf euren Abend ab.</p>
+		</div>
+		<div class="occasion-grid">
+			<article class="occasion-card occasion-wedding">
+				<div class="occasion-body">
+					<span class="occasion-icon">{{ icon("heart") }}</span>
+					<h3>Hochzeiten</h3>
+					<p>Vom Empfang bis zur vollen Tanzfläche: Live-Musik, die große Momente begleitet und alle Generationen zusammenbringt.</p>
+				</div>
+			</article>
+			<article class="occasion-card occasion-party">
+				<div class="occasion-body">
+					<span class="occasion-icon">{{ icon("sparkles") }}</span>
+					<h3>Private Feiern</h3>
+					<p>Geburtstag, Jubiläum oder einfach ein guter Grund zu feiern. Wir bringen den Soundtrack für einen Abend, der nach euch klingt.</p>
+				</div>
+			</article>
+			<article class="occasion-card occasion-corporate">
+				<div class="occasion-body">
+					<span class="occasion-icon">{{ icon("briefcase") }}</span>
+					<h3>Firmenevents</h3>
+					<p>Entspannte Begleitung zum Empfang oder mitreißende Musik für die Party: Der Live-Sound passt sich eurem Event an.</p>
+				</div>
+			</article>
+		</div>
+	</div>
+</section>
+
+<section class="moments" id="momente" aria-labelledby="moments-title">
+	<div class="wrap">
+		<div class="section-heading">
+			<p class="eyebrow">Live-Momente</p>
+			<h2 id="moments-title">Echte Auftritte. <em>Echte</em> Stimmung.</h2>
+		</div>
+		<div class="moment-grid">
+			<figure class="moment moment-tall">
+				{% photo "concert-shot.jpg", "Sängerin und Band live auf der Bühne mit Schlagzeug, Gitarre und Scheinwerfern", { sizes: "(min-width: 56rem) 40vw, 90vw", widths: [480, 720, 960] } %}
+				<figcaption>Live auf der Bühne</figcaption>
+			</figure>
+			<figure class="moment moment-wide">
+				{% photo "gig-selfie.jpeg", "Gruppen-Selfie der Band mit Gitarren bei einem Auftritt im Freien", { sizes: "(min-width: 56rem) 50vw, 90vw", widths: [480, 800, 1200] } %}
+				<figcaption>Selfie beim Gig</figcaption>
+			</figure>
+			<aside class="moment-more">
+				<h3>Mehr Eindrücke</h3>
+				<p>Weitere Videos, Fotos und Bewertungen findet ihr auf unseren Profilen.</p>
+				<ul class="social-list">
+					{% for item in site.social %}
+					<li><a class="social-link" href="{{ item.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ item.label }} (öffnet in neuem Tab)">{% if item.id == "youtube" or item.id == "instagram" %}{{ icon(item.id) }}{% else %}{{ icon("link") }}{% endif %}<span>{{ item.label }}</span></a></li>
+					{% endfor %}
+				</ul>
+			</aside>
+		</div>
+	</div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="contact-title">
+	<div class="contact-inner">
+		<div class="contact-copy">
+			<p class="eyebrow">Der nächste gute Abend beginnt hier</p>
+			<h2 id="contact-title">Was habt ihr <em>vor</em>?</h2>
+			<p>Erzählt uns von eurem Anlass: Datum, Ort und Gästezahl reichen für den Anfang. Wir melden uns schnell zurück.</p>
+		</div>
+		<div class="contact-actions">
+			<div class="contact-buttons">
+				<a class="button button-contact button-gold" href="{{ site.mailHref }}">{{ icon("mail") }}E-Mail schreiben</a>
+				<a class="button button-contact button-glass" href="{{ site.whatsappHref }}" target="_blank" rel="noopener noreferrer">{{ icon("whatsapp") }}WhatsApp anfragen</a>
+			</div>
+			<p class="contact-direct">
+				Oder direkt: <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+				<button class="link-button copy-button" type="button" data-copy="{{ site.email }}">{{ icon("copy") }}<span>Adresse kopieren</span></button>
+			</p>
+			<p class="contact-direct">Telefon / WhatsApp: <a href="tel:{{ site.phone | replace(' ', '') }}">{{ site.phone }}</a></p>
+			<p class="visually-hidden" role="status" aria-live="polite" data-copy-status></p>
+		</div>
+	</div>
+</section>
